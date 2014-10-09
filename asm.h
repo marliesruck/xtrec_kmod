@@ -9,4 +9,10 @@
 /** @brief Read address of IDT */
 void *idt_base(void);
 
+/** @brief Disable interrupts */
+void disable_interrupts(void);
+
+/** @brief Disable interrupts */
+void enable_interrupts(void);
+
 #endif /* !X86_ASM_H */

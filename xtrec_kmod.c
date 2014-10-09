@@ -95,10 +95,9 @@ static int __init init_mod(void)
 	}
 
 	/* Install IDT entry */
-	void *idt_table = idt_base();
-	printk(KERN_EMERG "IDT base: %p\n", idt_table);
-	printk(KERN_EMERG "IDT addr: %x\n", *(unsigned int*)idt_table);
+	disable_interrupts();
 	install_interrupt_gate(1,blockStep_handler,IDT_KERN_DPL);
+	enable_interrupts();
 	
 	
 	
